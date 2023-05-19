@@ -1,0 +1,14 @@
+<div class="blur-back">
+    <div class="modal show" role="dialog" style="display:block" [ngClass]="{'modal-black': black}">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header justify-content-center">
+                    <button type="button" class="close" (click)="closeModal()" data-dismiss="modal" aria-hidden="true">
+                        <i class="tim-icons icon-simple-remove text-white"></i>
+                    </button>
+                </div>
+                <ng-content></ng-content>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="position-fixed bottom-right" *ngIf="showAlert">
+    <div class="alert alert-{{alertType}} d-inline-block" role="alert">
+        <div class="button-container pl-4">
+            <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close"
+                (click)="swapAlert()">
+                <i class="tim-icons icon-simple-remove"></i>
+            </button>
+        </div>
+        {{alertMessage}}
+    </div>
+</div>

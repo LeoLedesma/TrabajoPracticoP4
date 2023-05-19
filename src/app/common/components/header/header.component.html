@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg fixed-top bg-primary">
+  <div class="container">
+    <div class="navbar-translate">
+      <div class="navbar-brand" routerLink="index" rel="tooltip" title="" data-placement="bottom" style="cursor:pointer">
+        <span>• DYNKAL •</span> Sala de juegos
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#example-navbar-primary"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-bar bar1"></span>
+        <span class="navbar-toggler-bar bar2"></span>
+        <span class="navbar-toggler-bar bar3"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="example-navbar-primary">
+      <ul class="navbar-nav ml-auto">
+<!-- ANONIMO -->
+        <ng-container *ngIf="!isSignedIn; else elseTemplate">
+          <li class="nav-item" (click)="openModalSignIn()">
+            <a class="nav-link">
+              <i class="tim-icons icon-single-02"></i> Iniciar Sesion
+            </a>
+          </li>
+        </ng-container>
+<!-- FIN ANONIMO -->
+<!--LOGUEADO -->
+        <ng-template #elseTemplate>
+          <app-header-dropdown [title]="'Juegos'" [icono]="'icon-world'">
+            <li><a class="dropdown-item" routerLink="juegos/ahorcado">Ahorcado</a></li>
+            <li><a class="dropdown-item" routerLink="juegos/mayoromenor">Mayor o menor</a></li>
+            <li><a class="dropdown-item" routerLink="juegos/keyboard">Velocidad tipeo</a></li>
+          </app-header-dropdown>   
+          <app-header-dropdown [title]="currentUser.username" [icono]="'icon-single-02'">
+            <li><a class="dropdown-item " routerLink="" (click)="signOut()"> <i class="tim-icons icon-user-run"></i> Cerrar Sesion</a></li>                       
+          </app-header-dropdown>                                     
+        </ng-template>
+        <div>
+<!--LOGUEADO -->       
+      </div>
+      </ul>
+    </div>
+  </div>
+</nav>

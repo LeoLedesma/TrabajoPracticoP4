@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "salajuegostp1": {
+      "hosting": {
+        "TrabajoPracticoP4": [
+          "salajuegostp1"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "salajuegostp1"
+  }
+}

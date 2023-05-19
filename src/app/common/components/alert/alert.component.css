@@ -1,0 +1,8 @@
+.button-container {
+    float: right;
+  }
+  
+  .bottom-right {
+    bottom: 20px; /* Ajusta el valor según tus necesidades */
+    right: 20px; /* Ajusta el valor según tus necesidades */
+  }

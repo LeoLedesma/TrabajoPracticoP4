@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
+import { UserAuth } from './models/user';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'TrabajoPracticoP41C2023';
+export class AppComponent {  
 }

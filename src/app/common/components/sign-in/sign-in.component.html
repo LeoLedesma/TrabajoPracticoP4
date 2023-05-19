@@ -1,0 +1,74 @@
+<app-modal (onModalClose)="closeModal()" [black]="true">
+    <div class="text-muted text-center ml-auto mr-auto">
+        <h3 class="mb-0">{{titulo}}</h3>
+    </div>
+    <div class="modal-body">
+        <form role="form" [formGroup]="form" (ngSubmit)="submitForm()">
+            <div class="form-group mb-3">
+                <div>
+                    <div class="input-group input-group-alternative">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="tim-icons icon-email-85"></i></span>
+                        </div>
+                        <input class="form-control" placeholder="Email" type="email" formControlName="email">
+                    </div>
+                    <ng-container *ngIf="this.email?.invalid && (this.email?.touched || this.email?.dirty)">
+                        <small class="text-danger">Email Inválido</small>
+                    </ng-container>
+                </div>
+                <div *ngIf="modo" class="input-group input-group-alternative">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="tim-icons icon-email-85"></i></span>
+                    </div>
+                    <input class="form-control" placeholder="Usuario" type="text" formControlName="usuario">
+                </div>
+                <app-valid-input [input]="this.usuario">Usuario Inválido</app-valid-input>
+            </div>
+            <div>
+                <div class="form-group">
+                    <div class="input-group input-group-alternative">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="tim-icons icon-key-25"></i>
+                            </span>
+                        </div>
+                        <input class="form-control" placeholder="Contraseña" type="password" formControlName="password">
+                    </div>
+                    <app-valid-input [input]="this.password">Contraseña inválida</app-valid-input>                    
+                </div>
+            </div>
+            <div>
+                <div *ngIf="modo" class="form-group">
+                    <div class="input-group input-group-alternative">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="tim-icons icon-key-25"></i>
+                            </span>
+                        </div>
+                        <input class="form-control" placeholder="Repetir Contraseña" type="password"
+                            formControlName="confirmPassword">
+                    </div>
+                    <app-valid-input [input]="this.confirmPassword">La contraseña no coincide</app-valid-input>                    
+                </div>
+            </div>
+            <div class="alert alert-danger" *ngIf="errorMessage.length > 0">
+                {{errorMessage}}
+            </div>
+            <div class="row" [ngClass]="{'justify-content-around':!modo}">
+                <div *ngIf="!modo" class="form-check mt-3">
+                    <label (click)="fastAccess()">                                                
+                        Acceso rapido!
+                    </label>
+                </div>
+                <div class="form-check mt-3">
+                    <label (click)="swapMode()">                        
+                            {{alternativa}}!                        
+                    </label>
+                </div>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary my-4">{{titulo}}</button>
+            </div>
+        </form>
+    </div>
+</app-modal>

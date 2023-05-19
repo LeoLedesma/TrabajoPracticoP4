@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "TrabajoPracticoP41C2023": {
+    "TrabajoPracticoP4": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/trabajo-practico-p41-c2023",
+            "outputPath": "dist/trabajo-practico-p4",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -27,7 +27,10 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.min.js",
+              "/node_modules/jquery/dist/jquery.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -51,7 +54,13 @@
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.development.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -60,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "TrabajoPracticoP41C2023:build:production"
+              "browserTarget": "TrabajoPracticoP4:build:production"
             },
             "development": {
-              "browserTarget": "TrabajoPracticoP41C2023:build:development"
+              "browserTarget": "TrabajoPracticoP4:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "TrabajoPracticoP41C2023:build"
+            "browserTarget": "TrabajoPracticoP4:build"
           }
         },
         "test": {
@@ -90,6 +99,16 @@
               "src/styles.css"
             ],
             "scripts": []
+          }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "TrabajoPracticoP4:build:production",
+            "firebaseProject": "salajuegostp1",
+            "firebaseHostingSite": "salajuegostp1"
           }
         }
       }
